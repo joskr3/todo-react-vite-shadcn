@@ -1,20 +1,21 @@
 import './App.css'
 import React from 'react'
-import { Button } from './components/ui/button'
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+import { Route, Switch } from 'wouter'
+import FormularioVista from './vistas/FormularioVista'
+import Todo from './vistas/Todo'
+import Home from './vistas/Home'
 
 
 function App() {
   return (
     <>
-      <h1 className="text-3xl font-bold underline">
-        Hello world!
-      </h1>
-      <Button>Click me</Button>
-      <Avatar>
-        <AvatarImage src="https://github.com/shadcn.png" />
-        <AvatarFallback>CN</AvatarFallback>
-      </Avatar>
+      <Switch>
+        <Route path="/" component={Home} />
+        <Route path="/formulario" component={FormularioVista} />
+        <Route path="/todo" component={Todo} />
+        {/* Default route in a switch */}
+        <Route>404: No existe esa pagina!</Route>
+      </Switch>
     </>
   )
 }
